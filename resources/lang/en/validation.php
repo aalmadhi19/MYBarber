@@ -130,9 +130,13 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'start_date' => [
+            'required' => 'يرجى اختيار التاريخ و الوقت المناسب ',
         ],
+        'type' => [
+            'required' => 'يرجى اختيار نوع الحلاقة ',
+        ],
+    
     ],
 
     /*
