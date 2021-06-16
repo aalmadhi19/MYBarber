@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', ' تسجيل ')
+@section('title', __('lang.register'))
 @section('content')
 
     <form method="POST" action="{{ route('register') }}" class="login100-form validate-form">
@@ -7,7 +7,7 @@
         <div class="limiter">
             <div class="container-login100" style="background-image: url('../img/background.jpg');">
                 <div class="wrap-login100">
-                    <form method="POST" action="{{ route('register')) }}" class="login100-form validate-form">
+                    <form method="POST" action="{{ route('register') }}" class="login100-form validate-form">
                         @csrf
                         <span class="login100-form-logo">
                             <img src="{{ asset('img/icon1.png') }}"
@@ -15,11 +15,11 @@
                         </span>
 
                         <span class="login100-form-title p-b-34 p-t-27">
-                            تسجيل
+                            {{ __('lang.register')}}
                         </span>
 
                         <div class="wrap-input100">
-                            <input class="input100" type="text" name="name" placeholder="الاسم">
+                            <input class="input100" type="text" name="name" placeholder="{{ __('lang.name')}}">
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
                         @error('name')
@@ -30,7 +30,7 @@
 
 
                         <div class="wrap-input100">
-                            <input class="input100" type="phone" name="phone" placeholder="الجوال">
+                            <input class="input100" type="phone" name="phone" placeholder="{{ __('lang.phone')}}">
                             <span class="focus-input100" data-placeholder="&#xf2be;"></span>
                         </div>
                         @error('phone')
@@ -41,7 +41,7 @@
 
 
                         <div class="wrap-input100" >
-                            <input class="input100" type="email" name="email" placeholder="البريد الإلكتروني">
+                            <input class="input100" type="email" name="email" placeholder="{{ __('lang.email')}}">
                             <span class="focus-input100" data-placeholder="&#xf15a;"></span>
                         </div>
                         @error('email')
@@ -52,7 +52,7 @@
 
 
                         <div class="wrap-input100">
-                            <input class="input100" type="password" name="password" placeholder="كلمة السر">
+                            <input class="input100" type="password" name="password" placeholder="{{ __('lang.password')}}">
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
                         @error('password')
@@ -63,7 +63,7 @@
 
                         <div class="wrap-input100">
                             <input class="input100" type="password" name="password_confirmation"
-                                placeholder="تاكيد كلة السر">
+                                placeholder="{{ __('lang.password_con')}}">
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
                         @error('password_confirmation')
@@ -75,13 +75,13 @@
 
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">
-                                تسجـــــيل
+                                {{ __('lang.submit')}}
                             </button>
                         </div>
 
                         <div class="text-center p-t-20">
                             <a class="txt1" href="{{ route('login') }}">
-                                عندك حساب ؟
+                                {{ __('lang.have account')}}
                             </a>
                         </div>
                     </form>

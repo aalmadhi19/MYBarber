@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', ' تسجيل الدخول ')
+@section('title',  __('lang.login'))
 @section('content')
 
     @if (session('message'))
@@ -15,16 +15,15 @@
                     <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
                         @csrf
                         <span class="login100-form-logo">
-                            <img src="{{ asset('img/icon1.png') }}"
-                            alt="logo" width="66" height="66">
+                            <img src="{{ asset('img/icon1.png') }}" alt="logo" width="66" height="66">
                         </span>
 
                         <span class="login100-form-title p-b-34 p-t-27">
-                            تسجيل الدخول
+                            {{ __('lang.login')}}
                         </span>
 
                         <div class="wrap-input100">
-                            <input class="input100" type="phone" name="phone" placeholder="الجوال">
+                            <input class="input100" type="phone" name="phone" placeholder="{{ __('lang.phone')}}">
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
                         @error('phone')
@@ -35,8 +34,8 @@
 
 
 
-                        <div class="wrap-input100" >
-                            <input class="input100" type="password" name="password" placeholder="كلمة السر">
+                        <div class="wrap-input100">
+                            <input class="input100" type="password" name="password" placeholder="{{ __('lang.password')}}">
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
                         @error('password')
@@ -48,13 +47,20 @@
 
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">
-                                دخـــــول
+                                {{ __('lang.login')}}
                             </button>
+                        </div>
+                        <br>
+                        <div class="container-login100-form-btn">
+
+                            <a class="login101-form-btn" href="{{ route('set.language', 'en') }}"><span>EN</span></a>
+
+                            <a class="login101-form-btn" href="{{ route('set.language', 'ar') }}"><span>عربي</span></a>
                         </div>
 
                         <div class="text-center p-t-190">
                             <a class="txt1" href="{{ route('register') }}">
-                                انشاء حساب جديد
+                                {{ __('lang.register')}}
                             </a>
                         </div>
                     </form>

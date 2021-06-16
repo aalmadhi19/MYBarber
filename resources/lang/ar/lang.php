@@ -24,8 +24,22 @@
     'hair and beard '=> 'شعر و دقن',
     'book'=> 'أحجز',
 
-
+    'no appointments'=> 'لا يوجد مواعيد',
+    'action'=> 'اجرأ',
+    'block'=> 'حظر',
+    'unblock'=> 'رفع الحظر',
+    'name'=> 'الاسم',
+    'phone'=> 'الجوال',
+    'status'=> 'الحالة',
+    'no clients'=> 'لا يوجد لديك عملاء',
+    'login'=> 'تسجيل الدخول',
+    'register'=> 'إنشاء حساب جديد',
+    'password'=> 'كلمة السر',
+    'email'=> 'البريد الإلكتروني',
+    'password_con'=> 'تاكيد كلمة السر',
+    'submit'=> 'إرسال',
+    'have account'=> 'لديك حساب؟ اضغط هنا',
 
 
  ]
-?>you do not have any appointment
+?>

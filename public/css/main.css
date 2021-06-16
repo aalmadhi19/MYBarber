@@ -6,19 +6,19 @@
 
 @font-face {
   font-family: Lato-Regular;
-  src: url('../fonts/Lato/Lato-Regular.ttf'); 
+  src: url('../fonts/Lato/Lato-Regular.ttf');
 }
 
 @font-face {
   font-family: Lato-Bold;
-  src: url('../fonts/Lato/Lato-Bold.ttf'); 
+  src: url('../fonts/Lato/Lato-Bold.ttf');
 }
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 * {
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0px;
+	padding: 0px;
 	box-sizing: border-box;
 }
 
@@ -222,7 +222,7 @@ th, td {
 .table100-body {
   max-height: 585px;
   overflow: auto;
-  
+
 }
 
 
@@ -473,14 +473,14 @@ th, td {
 }
 
 .table100.ver5 .table100-body tr {
-  overflow: hidden; 
+  overflow: hidden;
   border-bottom: 10px solid #fff;
   border-radius: 10px;
 }
 
-.table100.ver5 .table100-body table { 
-  border-collapse: separate; 
-  border-spacing: 0 10px; 
+.table100.ver5 .table100-body table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
 }
 .table100.ver5 .table100-body td {
     border: solid 1px transparent;
@@ -490,13 +490,13 @@ th, td {
 }
 .table100.ver5 .table100-body td:first-child {
     border-left-style: solid;
-    border-top-left-radius: 10px; 
+    border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 .table100.ver5 .table100-body td:last-child {
     border-right-style: solid;
-    border-bottom-right-radius: 10px; 
-    border-top-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .table100.ver5 tr:hover td {
@@ -561,22 +561,22 @@ margin-top: 6%;
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+  src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
   font-family: Poppins-SemiBold;
-  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+  src: url('../fonts/poppins/Poppins-SemiBold.ttf');
 }
 
 
@@ -586,8 +586,8 @@ margin-top: 6%;
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0px;
+	padding: 0px;
 	box-sizing: border-box;
 }
 
@@ -712,7 +712,7 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;  
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -728,7 +728,7 @@ iframe {
   background-position: center;
   background-size: cover;
   position: relative;
-  z-index: 1;  
+  z-index: 1;
 }
 
 .container-login100::before {
@@ -765,7 +765,7 @@ iframe {
 }
 
 .login100-form-logo {
-  font-size: 60px; 
+  font-size: 60px;
   color: #333333;
   display: -webkit-box;
   display: -webkit-flex;
@@ -817,7 +817,7 @@ iframe {
   padding: 0 5px 0 38px;
 }
 
-/*---------------------------------------------*/ 
+/*---------------------------------------------*/
 .focus-input100 {
   position: absolute;
   display: block;
@@ -1019,6 +1019,66 @@ iframe {
 .login100-form-btn:hover:before {
   opacity: 0;
 }
+
+.login101-form-btn {
+  font-family: Poppins-Medium;
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.2;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 120px;
+  height: 50px;
+  border-radius: 25px;
+
+  background: #9152f8;
+  background: -webkit-linear-gradient(bottom, #7579ff, #b224ef);
+  background: -o-linear-gradient(bottom, #7579ff, #b224ef);
+  background: -moz-linear-gradient(bottom, #7579ff, #b224ef);
+  background: linear-gradient(bottom, #7579ff, #b224ef);
+  position: relative;
+  z-index: 1;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.login101-form-btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  opacity: 1;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.login101-form-btn:hover {
+  color: #fff;
+}
+
+.login101-form-btn:hover:before {
+  opacity: 0;
+}
+
 
 
 /*------------------------------------------------------------------

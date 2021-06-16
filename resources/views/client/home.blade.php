@@ -11,9 +11,7 @@
                                 <table>
                                     <thead>
                                         <tr class="row100 head">
-                                            @if ($reservation->status==null)
-                                            <th class=" cell100 column2">{{ __('lang.cancel')}}</th>
-                                            @endif
+                                            <th class=" cell100 column2">{{ __('lang.action')}}</th>
                                             <th class=" cell100 column2">{{ __('lang.appointment_status') }}</th>
                                             <th class=" cell100 column2">{{ __('lang.time')}}</th>
                                             <th class=" cell100 column2">{{ __('lang.date')}}</th>
@@ -27,13 +25,15 @@
                             <table>
                                 <tbody>
                                     <tr class="row100 body">
+                                        <td class="cell100 column2">
                                         @if ($reservation->status==null)
-                                        <td class="cell100 column2"><a class="btn btn-outline-danger"
+                                        <a class="btn btn-outline-danger"
                                             onclick="return confirm('هل انت متاكد من الغاء الموعد ؟')"
-                                            href="{{ route('destroy', $reservation->id) }}">{{ __('lang.cancel')}}<i
+                                            href="{{ route('destroy', $reservation->id) }}"> {{ __('lang.cancel')}}<i
                                                 class="fa fa-trash" aria-hidden="true"></i></a>
-                                         </td>
                                         @endif
+                                         </td>
+
                                         <td class="cell100 column2">{{ $status[$reservation->status] }}</td>
                                         <td class=" cell100 column2">
                                             {{ date(' A h:i', strtotime($reservation->start_date)) }}</td>
@@ -43,6 +43,11 @@
                                     </tr>
                                 @empty
                                     <p class="text-center" id="empty">{{ __('lang.you do not have any appointment')}} </p>
+                                    <div class="text-center" style="padding-bottom: 2%;">
+                                        @if ($canBook)
+                                            <a href="{{ route('create') }}" class=" text-center btn btn-primary  btn-lg">{{ __('lang.new appointment')}}</a>
+                                        @endif
+                                    </div>
                                 </tbody>
                             </table>
                         </div>
@@ -50,6 +55,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="links">

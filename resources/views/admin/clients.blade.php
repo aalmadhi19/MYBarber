@@ -11,12 +11,15 @@
                                 <table>
                                     <thead>
                                         <tr class="row100 head">
-                                            <th class=" cell100 column2">حالة </th>
-                                            <th class=" cell100 column2">جوال العميل</th>
-                                            <th class=" cell100 column2">اسم العميل</th>
-                                            <th class=" cell100 column1">رقم</th>
+                                            <th class=" cell100 column2">{{ __('lang.status')}}</th>
+                                            <th class=" cell100 column2">{{ __('lang.phone')}}</th>
+                                            <th class=" cell100 column2">{{ __('lang.name')}}</th>
+                                            <th class=" cell100 column1">{{ __('lang.id')}}</th>
                                         </tr>
-                                    </thead>
+
+
+
+
                                 </table>
                             </div>
                         @endif
@@ -25,12 +28,12 @@
                                 <tbody>
                                     <tr class="row100 body">
                                         @if ($client->blocked)
-                                        <td class=" cell100 column2"><a href="{{ route('unblock', $client->id) }}" class="btn btn-outline-success">الغاء الحظر
+                                        <td class=" cell100 column2"><a href="{{ route('unblock', $client->id) }}" class="btn btn-outline-success"> {{ __('lang.unblock')}}
                                             <i class=" fa fa-check" aria-hidden="true"></i>
                                         </a></td>
                                         @else
 
-                                        <td class=" cell100 column2"><a  href="{{ route('block',$client->id) }}" class="btn btn-outline-danger">حظر
+                                        <td class=" cell100 column2"><a  href="{{ route('block',$client->id) }}" class="btn btn-outline-danger"> {{ __('lang.block')}}
 
                                             <i class="fa fa-ban" aria-hidden="true"></i>
                                         </a>
@@ -41,7 +44,7 @@
                                         <td class=" cell100 column1">{{ $client->id }}</td>
                                     </tr>
                                     @empty
-                                    <p class="text-center" id="empty"> لا يوجد عملاء </p>
+                                    <p class="text-center" id="empty"> {{ __('lang.no clients')}} </p>
                                 </tbody>
                             </table>
                         </div>

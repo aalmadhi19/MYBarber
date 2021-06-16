@@ -152,7 +152,7 @@ a {
           color: #343a40; }
         .site-navbar .site-navigation .site-menu .has-children .dropdown .active > a {
           color: #007bff !important; }
-         
+
         .site-navbar .site-navigation .site-menu .has-children .dropdown > li {
           list-style: none;
           padding: 0;
@@ -334,7 +334,7 @@ a {
             position: relative;
             height: 100vh;
           }
-          
+
           .section .section-center {
             position: absolute;
             top: 50%;
@@ -343,14 +343,14 @@ a {
             -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
           }
-          
+
           #booking {
             font-family: 'Montserrat', sans-serif;
             background-image: url('../img/background1.jpg');
             background-size: cover;
             background-position: center;
           }
-          
+
           #booking::before {
             content: '';
             position: absolute;
@@ -360,7 +360,7 @@ a {
             top: 0;
             /* background: rgba(47, 103, 177, 0.6); */
           }
-          
+
           .booking-form {
             background-color: #fff;
             padding: 50px 20px;
@@ -370,14 +370,14 @@ a {
             float: left;
 
           }
-          
+
           .booking-form .form-group {
             position: relative;
             margin-bottom: 30px;
             text-align: right;
 
           }
-          
+
           .booking-form .form-control {
             background-color: #ebecee;
             border-radius: 4px;
@@ -388,29 +388,29 @@ a {
             color: #3e485c;
             font-size: 14px;
           }
-          
+
           .booking-form .form-control::-webkit-input-placeholder {
             color: rgba(62, 72, 92, 0.3);
           }
-          
+
           .booking-form .form-control:-ms-input-placeholder {
             color: rgba(62, 72, 92, 0.3);
           }
-          
+
           .booking-form .form-control::placeholder {
             color: rgba(62, 72, 92, 0.3);
           }
-          
+
           .booking-form input[type="date"].form-control:invalid {
             color: rgba(62, 72, 92, 0.3);
           }
-          
+
           .booking-form select.form-control {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
           }
-          
+
           .booking-form select.form-control+.select-arrow {
             position: absolute;
             right: 0px;
@@ -423,14 +423,14 @@ a {
             color: rgba(62, 72, 92, 0.3);
             font-size: 14px;
           }
-          
+
           .booking-form select.form-control+.select-arrow:after {
             content: '\279C';
             display: block;
             -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
           }
-          
+
           .booking-form .form-label {
             display: inline-block;
             color: #3e485c;
@@ -438,7 +438,7 @@ a {
             margin-bottom: 6px;
             text-align: right;
           }
-          
+
           .booking-form .submit-btn {
             display: inline-block;
             color: #fff;
@@ -450,29 +450,29 @@ a {
             -webkit-transition: 0.2s all;
             transition: 0.2s all;
           }
-          
+
           .booking-form .submit-btn:hover,
           .booking-form .submit-btn:focus {
             opacity: 0.9;
           }
-          
+
           .booking-cta {
             margin-top: 80px;
             margin-bottom: 30px;
           }
-          
+
           .booking-cta h1 {
             font-size: 52px;
             text-transform: uppercase;
             color: #fff;
             font-weight: 700;
           }
-          
+
           .booking-cta p {
             font-size: 16px;
             color: rgba(255, 255, 255, 0.8);
           }
-          
+
           .footer {
               bottom: 0;
               width: 100%;
@@ -480,9 +480,9 @@ a {
             line-height: 55px;
             margin-top: 20px;
           }
-          .footer-bttom {	
-            bottom: 0;	
-              position: relative;	
+          .footer-bttom {
+            bottom: 0;
+              position: relative;
           }
           .footer span{
             font-size: small;
@@ -495,4 +495,3 @@ a {
           }
           div.rtl {direction:rtl;}
 
-          

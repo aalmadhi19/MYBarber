@@ -21,5 +21,30 @@
     'hair'=> 'Hair',
     'hair and beard '=> 'Both',
     'book'=> 'Book',
+
+    'no appointments'=> 'No Appointments',
+    'action'=> 'Action',
+    'block'=> 'Block',
+    'unblock'=> 'Unblock',
+    'name'=> 'Name',
+    'phone'=> 'Phone',
+    'status'=> 'Status',
+    'no clients'=> 'No Clients',
+    'login'=> 'Login',
+    'register'=> 'Registration',
+    'password'=> 'Password',
+    'login'=> 'Login',
+    'email'=> 'Email',
+    'password_con'=> 'Confirm Password',
+    'submit'=> 'Submit',
+    'have account'=> 'Already have an Account?',
+
+
+
+
+
+
+
+
  ]
 ?>

@@ -19,24 +19,27 @@
                 <nav class="site-navigation position-relative text-right" role="navigation">
 
                     <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                        <nav>
-                            <a href="{{ route('set.language', 'en') }}">EN</a>
-                            <a href="{{ route('set.language', 'ar') }}">عربي</a>
-                        </nav>
-
                         @if (Auth::user()->isAdmin())
 
+                        <li class="{{ Session('applocale')=== "en" ? 'active1' : ' ' }}"><a
+                            href="{{ route('set.language', 'en') }}"><span>EN</span></a></li>
+                            <li class="{{ Session('applocale')=== "ar" ? 'active1' : ' ' }}"><a
+                                href="{{ route('set.language', 'ar') }}"><span>عربي</span></a></li>
+                                <br>
                             <li class="{{ Route::is('dashboard') ? 'active' : ' ' }}"><a
                                     href="{{ route('dashboard') }}"><span>{{ __('lang.Appointments')}}</span></a></li>
                             <li class="{{ Route::is('clients') ? 'active' : ' ' }}"><a
                                     href="{{ route('clients') }}"><span>{{ __('lang.Clients')}}</span></a></li>
                         @else
+                        <li class="{{ Session('applocale')=== "en" ? 'active1' : ' ' }}"><a
+                            href="{{ route('set.language', 'en') }}"><span>EN</span></a></li>
+                            <li class="{{ Session('applocale')=== "ar" ? 'active1' : ' ' }}"><a
+                                href="{{ route('set.language', 'ar') }}"><span>عربي</span></a></li>
+                                <br>
                             <li class="{{ Route::is('home') ? 'active' : '' }}"><a
                                     href="{{ route('home') }}"><span>{{ __('lang.My Appointment')}}</span></a>
                             </li>
-                            {{-- <li class="{{ Route::is('create') ? 'active' : '' }}"><a
-                                    href="{{ route('create') }}"><span>حجز</span></a>
-                            </li> --}}
+
                         @endif
                         <li class="has-children name">
                             <a href="#"><span> {{ Auth::user()->name }}</span></a>
