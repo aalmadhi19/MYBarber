@@ -40,6 +40,12 @@ Route::group(['middleware' => 'LanguageSwitcher'], function () {
 
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
         Route::get('/clients', 'DashboardController@clients')->name('clients');
+        Route::get('/settings', 'SettingsController@index')->name('settings');
+
+        Route::get('/status/{id}', 'SettingsController@changeStatus')->name('change.status');
+        Route::get('/data/{id}', 'SettingsController@changeHours')->name('changeHours');
+        Route::get('/data', 'SettingsController@setData')->name('data');
+
 
         Route::get('/cancel/{id}', 'DashboardController@cancel')->name('cancel');
         Route::get('/block/{id}', 'DashboardController@block')->name('block');

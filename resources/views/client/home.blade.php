@@ -28,7 +28,7 @@
                                         <td class="cell100 column2">
                                         @if ($reservation->status==null)
                                         <a class="btn btn-outline-danger"
-                                            onclick="return confirm('هل انت متاكد من الغاء الموعد ؟')"
+                                            onclick="return confirm('{{ __('lang.are you sure?')}}')"
                                             href="{{ route('destroy', $reservation->id) }}"> {{ __('lang.cancel')}}<i
                                                 class="fa fa-trash" aria-hidden="true"></i></a>
                                         @endif
@@ -66,17 +66,4 @@
             @endif
         </div>
     </div>
-
-
-
-    <script>
-        $('.js-pscroll').each(function() {
-            var ps = new PerfectScrollbar(this);
-
-            $(window).on('resize', function() {
-                ps.update();
-            })
-        });
-
-    </script>
 @endsection

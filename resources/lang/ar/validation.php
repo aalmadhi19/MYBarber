@@ -131,10 +131,10 @@ return [
 
     'custom' => [
         'start_date' => [
-            'required' =>'Please choose the appropriate date and time',
+            'required' =>'يرجى اختيار التاريخ و الوقت المناسب',
         ],
         'type' => [
-            'required' =>'Please select the type of shaving',
+            'required' =>'يرجى اختيار نوع الحلاقة ',
         ],
 
     ],

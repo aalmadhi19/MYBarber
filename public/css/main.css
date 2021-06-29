@@ -531,6 +531,80 @@ th, td {
   background-color: #cccccc;
 }
 
+/*==================================================================
+[ Ver6 ]*/
+
+.table100.ver6 .table100-head {
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.table100.ver6 th {
+  font-family: Lato-Bold;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+  text-align: center;
+  border-left: 0.5px solid #e9e6e6;
+/*   border-right: : 0.5px solid #e9e6e6; */
+
+
+  background-color: #007bff;
+}
+
+.table100.ver6 td {
+  font-family: Lato-Regular;
+  font-size: 16px;
+  color: #808080;
+  line-height: 1.4;
+  text-align: center;
+  background-color: #fff;
+
+  border-left: 1px solid #e9e6e6;
+
+}
+
+.table100.ver6 .table100-body tr {
+  border-bottom: 1.5px solid #e9e6e6;
+}
+
+/*---------------------------------------------*/
+
+.table100.ver6 {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  margin-top: 10%;
+}
+
+.table100.ver6 .ps__rail-y {
+  right: 5px;
+}
+
+.table100.ver6 .ps__rail-y::before {
+  background-color: #ebebeb;
+}
+
+.table100.ver6 .ps__rail-y .ps__thumb-y::before {
+  background-color: #cccccc;
+}
+
+.ver6_input  {
+ /* background-color: #e9ecef; */
+ /* border: #0069d9; */
+ border-color: #dee2e6 !important;
+
+}
+/* /*================================================================== */
+
+
 .links{
 position:fixed ;
 margin-top: 6%;
@@ -1197,6 +1271,40 @@ html,body{
 /*   padding: 0 10px; */
   border: 2px solid lightgrey;
   /* transition: all 0.3s ease; */
+}
+.wrapper1{
+  display:inherit;
+  height: 50px;
+  width: 330px;
+  align-items:baseline;
+  justify-content:center;
+  border-radius: 1px;
+  padding: 10px 30px 1px 1px;
+}
+
+.wrapper1 .option1{
+  height: 40%;
+  width: 40%;
+  display:inherit;
+  align-items: center;
+  justify-content:center;
+/*   margin: 0 7px; */
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 1px;
+  border: 1px solid lightgrey;
+  /* transition: all 0.3s ease; */
+}
+
+.wrapper2{
+  display:inline-block;
+  border-radius: 11px;
+}
+
+.wrapper2 .option2{
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
 }
 .wrapper .option .dot{
   height: 20px;

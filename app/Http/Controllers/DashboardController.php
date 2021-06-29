@@ -128,5 +128,9 @@ class DashboardController extends Controller
 
     }
 
+    public function settings()
+    {
+        return view('admin.settings');
+    }
 
 }

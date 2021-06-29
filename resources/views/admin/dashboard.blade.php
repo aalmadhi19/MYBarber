@@ -33,7 +33,7 @@
                                                 <i class="fa fa-ban" aria-hidden="true"></i></a>
                                         </td>
                                         <td class=" cell100 column3"> <a class="btn btn-outline-danger"
-                                            onclick="return confirm('هل انت متاكد من الغاء الموعد ؟')"
+                                            onclick="return confirm({{ __('lang.are you sure?')}} )"
                                             href="{{ route('cancel',$reservation->id) }}"> {{ __('lang.cancel')}} <i
                                                 class="fa fa-trash" aria-hidden="true"></i></a> </td>
                                         <td class=" cell100 column3">{{ $reservation->type }}</td>

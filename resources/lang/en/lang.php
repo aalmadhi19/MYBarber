@@ -38,8 +38,24 @@
     'password_con'=> 'Confirm Password',
     'submit'=> 'Submit',
     'have account'=> 'Already have an Account?',
+    'blocked'=> 'Sorry, your account is blocked.',
+    'are you sure?'=> 'Are you sure?.',
 
 
+
+    'settings'=> 'Settings',
+    'confirm settings'=> 'Confirm Settings',
+    'time settings'=> 'Working Hours',
+    'new'=> 'New',
+    'confirm without'=> 'Confirm appointments without my approval',
+    'open time'=> 'Select working hours',
+    'data'=> 'Data',
+    'description'=> 'Description',
+    'disabled'=> 'Disabled',
+    'enabled'=> 'Enabled',
+    'change'=> 'Change Status',
+    'enable'=> 'Enable',
+    'disable'=> 'Disable',
 
 
 

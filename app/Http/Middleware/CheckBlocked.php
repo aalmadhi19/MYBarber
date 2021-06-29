@@ -17,15 +17,15 @@ class CheckBlocked
     {
 
 
-        
+
         if (auth()->check() && auth()->user()->blocked) {
 
             auth()->logout();
-            $message = 'محظور';
-            return redirect()->route('login')->withMessage($message);        
+            $message =  __('lang.blocked');
+            return redirect()->route('login')->withMessage($message);
         }
 
-        return $next($request);    
+        return $next($request);
     }
-        
+
 }

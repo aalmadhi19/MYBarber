@@ -1,6 +1,9 @@
 <!doctype html>
+@if (App::getLocale() == 'en' )
+<html dir="rtl" lang="en">
+@else
 <html dir="ltr" lang="ar">
-
+@endif
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -88,7 +91,16 @@
 
 
     @yield('script')
+    <script>
+        $('.js-pscroll').each(function() {
+            var ps = new PerfectScrollbar(this);
 
+            $(window).on('resize', function() {
+                ps.update();
+            })
+        });
+
+    </script>
 </body>
 
 </html>

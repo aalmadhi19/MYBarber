@@ -39,6 +39,24 @@
     'password_con'=> 'تاكيد كلمة السر',
     'submit'=> 'إرسال',
     'have account'=> 'لديك حساب؟ اضغط هنا',
+    'blocked'=> 'عذراً، حسابك محظور',
+    'are you sure?'=> 'هل أنت متأكد؟',
+
+    'settings'=> 'الإعدادات',
+    'new'=> 'جديد',
+    'confirm without'=> 'تأكيد الحجز بدون موافقتي',
+    'open time'=> 'Select working hours',
+    'data'=> '',
+    'description'=> 'التفاصيل',
+    'disabled'=> 'معطل',
+    'enabled'=> 'مفعل',
+    'change'=> 'تعديل الحالة',
+    'enable'=> 'تفعيل',
+    'disable'=> 'تعطيل',
+
+
+
+
 
 
  ]
