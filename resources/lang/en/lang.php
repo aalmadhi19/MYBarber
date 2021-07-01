@@ -19,7 +19,10 @@
     'Shaving type'=> 'Shaving Type',
     'beard'=> 'Beard',
     'hair'=> 'Hair',
-    'hair and beard '=> 'Both',
+    'hair and beard'=> 'Both',
+    'all'=> 'Hair and Beard',
+
+
     'book'=> 'Book',
 
     'no appointments'=> 'No Appointments',
@@ -56,7 +59,7 @@
     'change'=> 'Change Status',
     'enable'=> 'Enable',
     'disable'=> 'Disable',
-
+    'confirm'=> 'Confirm',
 
 
 

@@ -48,7 +48,7 @@
                                         <span class="form-label text-right">{{ __('lang.Shaving type') }} </span>
                                         <div class="wrapper">
                                             <input type="radio" name="type" id="option-1" value="beard">
-                                            <input type="radio" name="type" id="option-2" value="hear">
+                                            <input type="radio" name="type" id="option-2" value="hair">
                                             <input type="radio" name="type" id="option-3" value="all">
                                             <label for="option-1" class="option option-1">
                                                 <div class="dot"></div>
@@ -60,7 +60,7 @@
                                             </label>
                                             <label for="option-3" class="option option-3">
                                                 <div class="dot"></div>
-                                                <span>{{ __('lang.hair and beard ') }}</span>
+                                                <span>{{ __('lang.hair and beard') }}</span>
                                             </label>
                                         </div>
                                         <span class="text-danger"><strong>{{ $errors->first('type') }}</strong></span>

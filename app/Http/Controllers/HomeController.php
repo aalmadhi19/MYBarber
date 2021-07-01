@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Reservation;
 use auth;
 use App\Http\Requests\StoreReservation;
-Use Alert;
+use Alert;
 
 class HomeController extends Controller
 {
@@ -28,11 +28,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $reservations = Reservation::latest()->where('user_id',Auth::id())->paginate(5);
+        $reservations = Reservation::latest()->where('user_id', Auth::id())->paginate(5);
         $canBook = Reservation::canBook();
+        $canCancel = Reservation::canCancel();
         $status = Reservation::statuss();
         $setStatus = Reservation::setStatus();
-        return view('client.home', compact('reservations','canBook','status'));
+
+        return view('client.home', compact('reservations', 'canBook', 'status','canCancel'));
     }
 
     public function create()
@@ -44,12 +46,19 @@ class HomeController extends Controller
     public function store(StoreReservation $request)
     {
 
-        if($request->type=='all'){
+        if ($request->type == 'all') {
             $start_date = strtotime($request->start_date);
             $end_date = date("y-m-d H:i", strtotime('+15 minutes', $start_date));
             $request->merge(['end_date' => $end_date]);
         }
-        Reservation::create($request->all());
+        $reservation = Reservation::create($request->all());
+        $autoConfirm = Reservation::autoConfirm();
+        if ($autoConfirm == true) {
+            $reservation = Reservation::find($reservation->id);
+            $reservation->status = 1;
+            $reservation->update();
+        }
+
         return redirect(route('home'))->with('success', 'تم الحجز');
     }
 

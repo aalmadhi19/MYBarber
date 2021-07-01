@@ -5,7 +5,7 @@
     'appointment_status'=> 'حالة الموعد',
     'time'=> 'الوقت',
     'date'=> 'التاريخ',
-    'id'=> 'رقم الحجز',
+    'id'=> 'رقم الموعد',
     'Appointments'=> 'المواعيد',
     'Clients'=> 'العملاء',
     'My Appointment'=> 'مواعيدي',
@@ -21,11 +21,13 @@
     'Shaving type'=> 'نوع الحلاقة',
     'beard'=> 'دقن',
     'hair'=> 'شعر',
-    'hair and beard '=> 'شعر و دقن',
+    'hair and beard'=> 'شعر و دقن',
+    'all'=> 'شعر و دقن',
+
     'book'=> 'أحجز',
 
     'no appointments'=> 'لا يوجد مواعيد',
-    'action'=> 'اجرأ',
+    'action'=> 'إجراءات',
     'block'=> 'حظر',
     'unblock'=> 'رفع الحظر',
     'name'=> 'الاسم',
@@ -53,6 +55,8 @@
     'change'=> 'تعديل الحالة',
     'enable'=> 'تفعيل',
     'disable'=> 'تعطيل',
+    'confirm'=> 'تأكيد',
+
 
 
 

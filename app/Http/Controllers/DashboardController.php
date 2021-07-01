@@ -23,7 +23,8 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $reservations = Reservation::orderBy('start_date', 'asc')->whereStatus(null)->get();
+        $reservations = Reservation::orderBy('start_date', 'asc')->where('status',NULL)->orWhere('status',1)->get();
+
         $status = Reservation::statuss();
         Reservation::setStatus();
 
@@ -108,11 +109,15 @@ class DashboardController extends Controller
     {
         Reservation::where('id', $id)->update(['status' => 2]);
         $user = Reservation::find($id)->user()->first();
-        $userEmail = $user->email;
-        event(new ReservationCanceled($userEmail));
+        event(new ReservationCanceled($user->email));
         return redirect('dashboard')->with('cancel', 'success');
     }
 
+    public function confirm($id)
+    {
+        Reservation::where('id', $id)->update(['status' => 1]);
+        return redirect('dashboard')->with('confirm', 'success');
+    }
 
     public function block($id)
     {

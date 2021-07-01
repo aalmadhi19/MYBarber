@@ -11,11 +11,11 @@
                                 <table>
                                     <thead>
                                         <tr class="row100 head">
-                                            <th class=" cell100 column2">{{ __('lang.action')}}</th>
+                                            <th class=" cell100 column2">{{ __('lang.action') }}</th>
                                             <th class=" cell100 column2">{{ __('lang.appointment_status') }}</th>
-                                            <th class=" cell100 column2">{{ __('lang.time')}}</th>
-                                            <th class=" cell100 column2">{{ __('lang.date')}}</th>
-                                            <th class=" cell100 column1">{{ __('lang.id')}}</th>
+                                            <th class=" cell100 column2">{{ __('lang.time') }}</th>
+                                            <th class=" cell100 column2">{{ __('lang.date') }}</th>
+                                            <th class=" cell100 column1">{{ __('lang.id') }}</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -26,13 +26,16 @@
                                 <tbody>
                                     <tr class="row100 body">
                                         <td class="cell100 column2">
-                                        @if ($reservation->status==null)
-                                        <a class="btn btn-outline-danger"
-                                            onclick="return confirm('{{ __('lang.are you sure?')}}')"
-                                            href="{{ route('destroy', $reservation->id) }}"> {{ __('lang.cancel')}}<i
-                                                class="fa fa-trash" aria-hidden="true"></i></a>
-                                        @endif
-                                         </td>
+                                            @if ($reservation->status == null || $reservation->status == 1)
+                                                @if ($canCancel)
+                                                    <a class="btn btn-outline-danger"
+                                                        onclick="return confirm('{{ __('lang.are you sure?') }}')"
+                                                        href="{{ route('destroy', $reservation->id) }}">
+                                                        {{ __('lang.cancel') }}<i class="fa fa-trash"
+                                                            aria-hidden="true"></i></a>
+                                                @endif
+                                            @endif
+                                        </td>
 
                                         <td class="cell100 column2">{{ $status[$reservation->status] }}</td>
                                         <td class=" cell100 column2">
@@ -42,10 +45,12 @@
                                         <td class=" cell100 column1">{{ $reservation->id }}</td>
                                     </tr>
                                 @empty
-                                    <p class="text-center" id="empty">{{ __('lang.you do not have any appointment')}} </p>
+                                    <p class="text-center" id="empty">{{ __('lang.you do not have any appointment') }}
+                                    </p>
                                     <div class="text-center" style="padding-bottom: 2%;">
                                         @if ($canBook)
-                                            <a href="{{ route('create') }}" class=" text-center btn btn-primary  btn-lg">{{ __('lang.new appointment')}}</a>
+                                            <a href="{{ route('create') }}"
+                                                class=" text-center btn btn-primary  btn-lg">{{ __('lang.new appointment') }}</a>
                                         @endif
                                     </div>
                                 </tbody>
@@ -62,7 +67,8 @@
         {{ $reservations->links() }}
         <div class="text-center" style="padding-bottom: 2%;">
             @if ($canBook)
-                <a href="{{ route('create') }}" class=" text-center btn btn-primary  btn-lg">{{ __('lang.new appointment')}}</a>
+                <a href="{{ route('create') }}"
+                    class=" text-center btn btn-primary  btn-lg">{{ __('lang.new appointment') }}</a>
             @endif
         </div>
     </div>

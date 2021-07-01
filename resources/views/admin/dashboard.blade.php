@@ -1,24 +1,24 @@
 @extends('layouts.app')
 @section('content')
     @include('layouts.header')
-    <div class="limiter" id="booking" >
+    <div class="limiter" id="booking">
         <div class="container-table100">
             <div class="wrap-table100">
-				<div class="table100 ver2 m-b-110">
+                <div class="table100 ver2 m-b-110">
                     @forelse($reservations as $reservation )
                         @if ($loop->first)
                             <div class="table100-head">
                                 <table>
                                     <thead>
                                         <tr class="row100 head">
-                                            <th class=" cell100 column3">{{ __('lang.block')}}</th>
-                                            <th class=" cell100 column3">{{ __('lang.cancel')}}</th>
-                                            <th class=" cell100 column3">{{ __('lang.Shaving type')}}</th>
-                                            <th class=" cell100 column3">{{ __('lang.name')}}</th>
-                                            <th class=" cell100 column3">{{ __('lang.appointment_status')}}</th>
-                                            <th class=" cell100 column3">{{ __('lang.time')}}</th>
-                                            <th class=" cell100 column3">{{ __('lang.date')}}</th>
-                                            <th class=" cell100 column1">{{ __('lang.id')}}</th>
+                                            <th class=" cell100 column3">{{ __('lang.block') }}</th>
+                                            <th class=" cell100 column3">{{ __('lang.action') }}</th>
+                                            <th class=" cell100 column3">{{ __('lang.Shaving type') }}</th>
+                                            <th class=" cell100 column3">{{ __('lang.name') }}</th>
+                                            <th class=" cell100 column3">{{ __('lang.appointment_status') }}</th>
+                                            <th class=" cell100 column3">{{ __('lang.time') }}</th>
+                                            <th class=" cell100 column3">{{ __('lang.date') }}</th>
+                                            <th class=" cell100 column1">{{ __('lang.id') }}</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -29,14 +29,22 @@
                                 <tbody>
                                     <tr class="row100 body">
                                         <td class="cell100 column3">
-                                            <a href="{{ route('block',$reservation->user_id) }}" class="btn btn-outline-danger"> {{ __('lang.block')}}
+                                            <a href="{{ route('block', $reservation->user_id) }}"
+                                                class="btn btn-outline-danger"> {{ __('lang.block') }}
                                                 <i class="fa fa-ban" aria-hidden="true"></i></a>
                                         </td>
-                                        <td class=" cell100 column3"> <a class="btn btn-outline-danger"
-                                            onclick="return confirm({{ __('lang.are you sure?')}} )"
-                                            href="{{ route('cancel',$reservation->id) }}"> {{ __('lang.cancel')}} <i
-                                                class="fa fa-trash" aria-hidden="true"></i></a> </td>
-                                        <td class=" cell100 column3">{{ $reservation->type }}</td>
+                                        @if ($reservation->status == 0)
+                                        <td class=" cell100 column3"> <a class="btn btn-outline-success"
+                                                href="{{ route('confirm',$reservation->id) }}"> {{ __('lang.confirm')}} <i
+                                                class="fa fa-check" aria-hidden="true"></i></a> </td>
+                                        @else
+                                            <td class=" cell100 column3"> <a class="btn btn-outline-danger"
+                                                    onclick="return confirm({{ __('lang.are you sure?') }} )"
+                                                    href="{{ route('cancel', $reservation->id) }}">
+                                                    {{ __('lang.cancel') }} <i class="fa fa-trash"
+                                                        aria-hidden="true"></i></a> </td>
+                                        @endif
+                                        <td class=" cell100 column3">{{ __('lang.'.$reservation->type) }}</td>
                                         <td class=" cell100 column3">{{ $reservation->name }}</td>
                                         <td class="cell100 column3">{{ $status[$reservation->status] }}</td>
                                         <td class=" cell100 column3">
@@ -47,8 +55,8 @@
                                         </td>
                                         <td class=" cell100 column1">{{ $reservation->id }}</td>
                                     </tr>
-                                    @empty
-                                    <p class="text-center" id="empty"> {{ __('lang.no appointments')}} </p>
+                                @empty
+                                    <p class="text-center" id="empty"> {{ __('lang.no appointments') }} </p>
                                 </tbody>
                             </table>
                         </div>

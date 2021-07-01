@@ -2,14 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use auth;
+use App\Settings;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
     protected $fillable = [
-        'user_id', 'name', 'start_date','end_date', 'time', 'type'
+        'user_id', 'name', 'start_date', 'end_date', 'time', 'type'
     ];
 
 
@@ -22,15 +23,15 @@ class Reservation extends Model
     public static function statuss()
     {
         return [
-            null =>  __('lang.confirmed'),
-            1 => '',
+            null =>  __('lang.new'),
+            1 =>  __('lang.confirmed'),
             2 =>  __('lang.canceled'),
             3 => __('lang.finished')
         ];
     }
     public static function canBook()
     {
-        if (Reservation::whereUser_id(Auth::id())->where('status', null)->exists()) {
+        if (Reservation::whereUser_id(Auth::id())->where('status', NULL)->orWhere('status', 1)->exists()) {
             return false;
         } else {
             return true;
@@ -52,10 +53,8 @@ class Reservation extends Model
         foreach ($unavailableDates as $date) {
             $unavailableDatess[] = Carbon::parse($date)->format('m/d/Y:H:i');
         }
-        $unavailableDatess ;
-        return $unavailableDatess ?? '01/01/2020:12:12'  ;
-
-
+        $unavailableDatess;
+        return $unavailableDatess ?? '01/01/2020:12:12';
     }
 
     public static function FormatToValidation()
@@ -69,6 +68,27 @@ class Reservation extends Model
 
     public static function setStatus()
     {
-        Reservation::where('status', null)->where('start_date', '<', now())->update(['status' => 3]);
+        Reservation::where('status', null)->Orwhere('status', 1)->where('start_date', '<', now())->update(['status' => 3]);
+    }
+
+    public static function autoConfirm()
+    {
+        $autoConfirm = Settings::where('id', 1)->first();
+
+        if ($autoConfirm->status == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static function canCancel()
+    {
+
+        if (Reservation::where('status', null)->Orwhere('status', 1)->whereUser_id(Auth::id())->where('start_date', '<', Carbon::now()->addHour(1))->exists()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

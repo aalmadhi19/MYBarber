@@ -47,7 +47,11 @@ Route::group(['middleware' => 'LanguageSwitcher'], function () {
         Route::get('/data', 'SettingsController@setData')->name('data');
 
 
+
+
         Route::get('/cancel/{id}', 'DashboardController@cancel')->name('cancel');
+        Route::get('/confirm/{confirm}', 'DashboardController@confirm')->name('confirm');
+
         Route::get('/block/{id}', 'DashboardController@block')->name('block');
         Route::get('/unblock/{id}', 'DashboardController@unblock')->name('unblock');
     });
