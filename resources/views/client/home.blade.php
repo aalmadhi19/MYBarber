@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+{{ __('lang.home')}} - {{ config('app.name') }}
+@endsection
 @section('content')
     @include('layouts.header')
     <div class="limiter" id="booking">
@@ -64,7 +67,7 @@
     </div>
 
     <div class="links">
-        {{ $reservations->links() }}
+        {{-- {{ $reservations->links() }} --}}
         <div class="text-center" style="padding-bottom: 2%;">
             @if ($canBook)
                 <a href="{{ route('create') }}"

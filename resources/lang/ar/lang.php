@@ -56,6 +56,17 @@
     'enable'=> 'تفعيل',
     'disable'=> 'تعطيل',
     'confirm'=> 'تأكيد',
+    'user_id'=> 'رقم العميل',
+
+    'Auto Confirmation'=> 'تأكيد تلقائي',
+    'Confirm appointment without approval'=> 'تأكيد المواعيد تلقائيًا',
+    'appointments'=> 'المواعيد',
+    'clients'=> 'العملاء',
+    'home'=> 'مواعيدي',
+    'reservation'=> 'حجز جديد',
+
+
+
 
 
 

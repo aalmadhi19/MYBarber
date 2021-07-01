@@ -4,7 +4,7 @@
     'appointment_status'=> 'Status',
     'time'=> 'Time',
     'date'=> 'Date',
-    'id'=> 'id',
+    'id'=> 'ID',
     'Appointments'=> 'Appointments',
     'Clients'=> 'Clients',
     'My Appointment'=> 'My Appointment',
@@ -60,8 +60,14 @@
     'enable'=> 'Enable',
     'disable'=> 'Disable',
     'confirm'=> 'Confirm',
+    'user_id'=> 'ID',
 
-
+    'Auto Confirmation'=> 'Auto Confirmation',
+    'Confirm appointment without approval'=> 'Confirm appointment without approval',
+    'appointments'=> 'Appointments',
+    'clients'=> 'Clients',
+    'home'=> 'My Appointments',
+    'reservation'=> 'Reservation',
 
 
 

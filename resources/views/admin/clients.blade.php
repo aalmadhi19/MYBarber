@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+{{ __('lang.clients')}} - {{ config('app.name') }}
+@endsection
 @section('content')
     @include('layouts.header')
     <div class="limiter" id="booking" >
@@ -11,10 +14,10 @@
                                 <table>
                                     <thead>
                                         <tr class="row100 head">
-                                            <th class=" cell100 column2">{{ __('lang.status')}}</th>
+                                            <th class=" cell100 column2">{{ __('lang.action')}}</th>
                                             <th class=" cell100 column2">{{ __('lang.phone')}}</th>
                                             <th class=" cell100 column2">{{ __('lang.name')}}</th>
-                                            <th class=" cell100 column1">{{ __('lang.id')}}</th>
+                                            <th class=" cell100 column1">{{ __('lang.user_id')}}</th>
                                         </tr>
 
 

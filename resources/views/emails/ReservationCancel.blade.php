@@ -1,12 +1,12 @@
 @component('mail::message')
-# عزيزنا العميل 
+# عزيزي العميل
 
-يؤسفنا ابلاغك بآن موعدكم قد تم الغاءة.
+نأسف لإبلاغك بأن موعدك قد تم الغاءه.
 <br>
-يرجي حجز موعد في وقت أخر.
+يرجى حجز موعد في وقت آخر.
 
-@component('mail::button', ['url' => 'http://mybarber.test/home'])
-حجز موعد أخر
+@component('mail::button', ['url' => ''])
+حجز موعد آخر
 @endcomponent
 
 شكرًا ,<br>

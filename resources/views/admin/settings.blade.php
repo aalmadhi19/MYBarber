@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+{{ __('lang.settings')}} - {{ config('app.name') }}
+@endsection
 @section('content')
     @include('layouts.header')
     <div class="limiter" id="booking">
@@ -37,8 +40,8 @@
                                             </form>
                                         </td>
 
-                                        <td class="cell100 column2"> {{ $setting->description }}</td>
-                                        <td class="cell100 column2"> {{ $setting->name }}</td>
+                                        <td class="cell100 column2">{{ __('lang.'.$setting->description) }}</td>
+                                        <td class="cell100 column2">{{ __('lang.'.$setting->name) }}</td>
                                     </tr>
                                 </tbody>
                             </table>

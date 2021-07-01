@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+{{ __('lang.appointments')}} - {{ config('app.name') }}
+@endsection
 @section('content')
     @include('layouts.header')
     <div class="limiter" id="booking">

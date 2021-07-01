@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', __('lang.login'))
+@section('title')
+{{ __('lang.login')}} - {{ config('app.name') }}
+@endsection
 @section('content')
 
 

@@ -30,7 +30,7 @@
 
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/icon1.png') }}" />
     <!-- CSS here -->
     {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.rtl.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">

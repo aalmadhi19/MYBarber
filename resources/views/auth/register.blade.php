@@ -1,5 +1,7 @@
 @extends('layouts.app')
-@section('title', __('lang.register'))
+@section('title')
+{{ __('lang.register')}} - {{ config('app.name') }}
+@endsection
 @section('content')
 
     <form method="POST" action="{{ route('register') }}" class="login100-form validate-form">
