@@ -66,9 +66,8 @@
 
     </div>
 
-    <div class="links">
-        {{-- {{ $reservations->links() }} --}}
-        <div class="text-center" style="padding-bottom: 2%;">
+    <div class="links" style="margin-top: 100px">
+        <div class="text-center " style="margin-top: 100px">
             @if ($canBook)
                 <a href="{{ route('create') }}"
                     class=" text-center btn btn-primary  btn-lg">{{ __('lang.new appointment') }}</a>
