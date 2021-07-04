@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     @include('layouts.header')
+    
     <div class="limiter" id="booking">
         <div class="container-table100">
             <div class="wrap-table100">

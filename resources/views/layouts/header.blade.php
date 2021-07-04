@@ -15,7 +15,7 @@
 
                 <div class="col-11 col-xl-2">
                     <h1 class="mb-0 site-logo"><a href="#" class="text-white mb-0"><img
-                                src="{{ asset('img/icon1.png') }}" alt="logo" width="133" height="90"></a></h1>
+                                src="{{ asset('img/icon1.png') }}" alt="logo" class="icon" width="133" height="90"></a></h1>
                 </div>
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" role="navigation">
