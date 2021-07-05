@@ -21,7 +21,7 @@
                         </span>
 
                         <div class="wrap-input100">
-                            <input class="input100" type="text" name="name" placeholder="{{ __('lang.name')}}">
+                            <input class="input100" type="text" name="name" value="{{ old('name') }}" placeholder="{{ __('lang.name')}}">
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
                         @error('name')
@@ -32,7 +32,7 @@
 
 
                         <div class="wrap-input100">
-                            <input class="input100" type="phone" name="phone" placeholder="{{ __('lang.phone')}}">
+                            <input class="input100" type="phone" name="phone" value="{{ old('phone') }}" placeholder="{{ __('lang.phone')}}">
                             <span class="focus-input100" data-placeholder="&#xf2be;"></span>
                         </div>
                         @error('phone')
@@ -43,7 +43,7 @@
 
 
                         <div class="wrap-input100" >
-                            <input class="input100" type="email" name="email" placeholder="{{ __('lang.email')}}">
+                            <input class="input100" type="email" name="email" value="{{ old('email') }}"  placeholder="{{ __('lang.email')}}">
                             <span class="focus-input100" data-placeholder="&#xf15a;"></span>
                         </div>
                         @error('email')
