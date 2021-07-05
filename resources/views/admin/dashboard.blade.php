@@ -33,15 +33,15 @@
                                     <tr class="row100 body">
                                         <td class="cell100 column3">
                                             <a href="{{ route('block', $reservation->user_id) }}"
-                                                class="btn btn-outline-danger"> {{ __('lang.block') }}
+                                                class="btn btn-sm btn-outline-danger"> {{ __('lang.block') }}
                                                 <i class="fa fa-ban" aria-hidden="true"></i></a>
                                         </td>
                                         @if ($reservation->status == 0)
-                                        <td class=" cell100 column3"> <a class="btn btn-outline-success"
+                                        <td class=" cell100 column3"> <a class="btn  btn-sm  btn-outline-success"
                                                 href="{{ route('confirm',$reservation->id) }}"> {{ __('lang.confirm')}} <i
                                                 class="fa fa-check" aria-hidden="true"></i></a> </td>
                                         @else
-                                            <td class=" cell100 column3"> <a class="btn btn-outline-danger"
+                                            <td class=" cell100 column3"> <a class="btn  btn-sm  btn-outline-danger"
                                                     onclick="return confirm({{ __('lang.are you sure?') }} )"
                                                     href="{{ route('cancel', $reservation->id) }}">
                                                     {{ __('lang.cancel') }} <i class="fa fa-trash"

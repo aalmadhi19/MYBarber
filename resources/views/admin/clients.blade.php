@@ -31,12 +31,12 @@
                                 <tbody>
                                     <tr class="row100 body">
                                         @if ($client->blocked)
-                                        <td class=" cell100 column2"><a href="{{ route('unblock', $client->id) }}" class="btn btn-outline-success"> {{ __('lang.unblock')}}
+                                        <td class=" cell100 column2"><a href="{{ route('unblock', $client->id) }}" class="btn  btn-sm  btn-outline-success"> {{ __('lang.unblock')}}
                                             <i class=" fa fa-check" aria-hidden="true"></i>
                                         </a></td>
                                         @else
 
-                                        <td class=" cell100 column2"><a  href="{{ route('block',$client->id) }}" class="btn btn-outline-danger"> {{ __('lang.block')}}
+                                        <td class=" cell100 column2"><a  href="{{ route('block',$client->id) }}" class="btn  btn-sm  btn-outline-danger"> {{ __('lang.block')}}
 
                                             <i class="fa fa-ban" aria-hidden="true"></i>
                                         </a>

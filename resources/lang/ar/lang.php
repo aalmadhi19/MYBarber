@@ -1,7 +1,7 @@
 <?php
  return [
 
-    'cancel' => 'الغاء الموعد',
+    'cancel' => 'الغاء',
     'appointment_status'=> 'حالة الموعد',
     'time'=> 'الوقت',
     'date'=> 'التاريخ',

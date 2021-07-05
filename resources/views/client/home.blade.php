@@ -1,14 +1,17 @@
 @extends('layouts.app')
 @section('title')
-{{ __('lang.home')}} - {{ config('app.name') }}
+    {{ __('lang.home') }} - {{ config('app.name') }}
 @endsection
 @section('content')
     @include('layouts.header')
-    
+
     <div class="limiter" id="booking">
         <div class="container-table100">
+            <div class="title text-center">
+                {{ __('lang.home') }}
+            </div>
             <div class="wrap-table100">
-                <div class="table100 ver2 m-b-110">
+                <div class="table100 ver2">
                     @forelse($reservations as $reservation )
                         @if ($loop->first)
                             <div class="table100-head">
@@ -32,11 +35,11 @@
                                         <td class="cell100 column2">
                                             @if ($reservation->status == null || $reservation->status == 1)
                                                 @if ($canCancel)
-                                                    <a class="btn btn-outline-danger"
+                                                    <a class="btn btn-sm btn-outline-danger"
                                                         onclick="return confirm('{{ __('lang.are you sure?') }}')"
                                                         href="{{ route('destroy', $reservation->id) }}">
-                                                        {{ __('lang.cancel') }}<i class="fa fa-trash"
-                                                            aria-hidden="true"></i></a>
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                        {{ __('lang.cancel') }}</a>
                                                 @endif
                                             @endif
                                         </td>
@@ -48,31 +51,33 @@
                                             {{ date('Y-m-d', strtotime($reservation->start_date)) }}</td>
                                         <td class=" cell100 column1">{{ $reservation->id }}</td>
                                     </tr>
-                                @empty
-                                    <p class="text-center" id="empty">{{ __('lang.you do not have any appointment') }}
-                                    </p>
-                                    <div class="text-center" style="padding-bottom: 2%;">
-                                        @if ($canBook)
-                                            <a href="{{ route('create') }}"
-                                                class=" text-center btn btn-primary  btn-lg">{{ __('lang.new appointment') }}</a>
-                                        @endif
-                                    </div>
                                 </tbody>
                             </table>
                         </div>
+                    @empty
+                        <tbody>
+                            <p class="text-center" id="empty">{{ __('lang.you do not have any appointment') }}
+                            </p>
+                            <div class="text-center" style="padding-bottom: 2%;">
+                                @if ($canBook)
+                                    <a href="{{ route('create') }}"
+                                        class=" text-center btn btn-primary  btn-lg">{{ __('lang.new appointment') }}</a>
+                                @endif
+                            </div>
+                        </tbody>
+                        </table>
                     @endforelse
                 </div>
             </div>
         </div>
-
-    </div>
-
-    <div class="links" style="margin-top: 100px">
-        <div class="text-center " style="margin-top: 100px">
+        <div class="text-center" style="padding-bottom: 10%;">
             @if ($canBook)
                 <a href="{{ route('create') }}"
                     class=" text-center btn btn-primary  btn-lg">{{ __('lang.new appointment') }}</a>
             @endif
         </div>
+
     </div>
+
+
 @endsection

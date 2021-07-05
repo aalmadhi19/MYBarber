@@ -16,7 +16,7 @@
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-md-7 col-md-push-6" style="padding-left: 20%;">
+                        <div class="" style="padding-left: 20%;">
                             <div class="booking-cta">
                                 <h1>{{ __('lang.Book your appointment') }}</h1>
 
@@ -25,7 +25,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-4 col-md-pull-7">
+                        <div>
                             <div class="booking-form">
                                 <form method="POST" action="{{ route('store') }}">
                                     @csrf
