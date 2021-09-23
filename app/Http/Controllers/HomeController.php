@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $reservations = Reservation::latest()->where('user_id', Auth::id())->get();
+        $reservations = Reservation::latest()->where('user_id', Auth::id())->paginate(10);
         $canBook = Reservation::canBook();
         $canCancel = Reservation::canCancel();
         $status = Reservation::statuss();

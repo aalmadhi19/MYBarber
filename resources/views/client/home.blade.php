@@ -7,9 +7,6 @@
 
     <div class="limiter" id="booking">
         <div class="container-table100">
-            <div class="title text-center">
-                {{ __('lang.home') }}
-            </div>
             <div class="wrap-table100">
                 <div class="table100 ver2">
                     @forelse($reservations as $reservation )
@@ -67,6 +64,10 @@
                         </tbody>
                         </table>
                     @endforelse
+                </div>
+                <div>
+                    <br>
+                    {{ $reservations->links() }}
                 </div>
             </div>
         </div>

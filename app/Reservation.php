@@ -68,7 +68,7 @@ class Reservation extends Model
 
     public static function setStatus()
     {
-        Reservation::where('status', null)->Orwhere('status', 1)->where('start_date', '<', now())->update(['status' => 3]);
+        Reservation::whereStatus(null)->Orwhere('status',1)->where('start_date', '<', now())->update(['status' => 3]);
     }
 
     public static function autoConfirm()
