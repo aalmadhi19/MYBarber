@@ -52,20 +52,14 @@ class LoginController extends Controller
 
   public function fastAuth(Request $request)
   {
-    $user = User::where('phone', $request->phone)->first();
-    if ($user) {
-
-      $token = getenv("TWILIO_AUTH_TOKEN");
-      $twilio_sid = getenv("TWILIO_SID");
-      $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
-      $twilio = new Client($twilio_sid, $token);
-      $twilio->verify->v2->services($twilio_verify_sid)
-        ->verifications
-        ->create('+966' . $user->phone, "sms");
-      return redirect()->route('authentication')->with(['phone' => $user->phone]);
-    } else {
-      return redirect()->back()->with(['error' => 'no user !']);
-    }
+    $token = getenv("TWILIO_AUTH_TOKEN");
+    $twilio_sid = getenv("TWILIO_SID");
+    $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+    $twilio = new Client($twilio_sid, $token);
+    $twilio->verify->v2->services($twilio_verify_sid)
+      ->verifications
+      ->create('+966' . $request->phone, "sms");
+    return redirect()->route('authentication')->with(['phone' =>  $request->phone]);
   }
 
   public function verify(Request $request)
@@ -86,8 +80,23 @@ class LoginController extends Controller
       ->create($data['code'], array('to' => '+966' . $data['phone']));
 
     if ($verification->valid) {
+
       $user = User::where('phone', $data['phone'])->first();
-      Auth::login($user);
+      if ($user) {
+        Auth::login($user);
+      } else {
+        $user =
+          User::create([
+            'name'  => 'Guest',
+            'email' => 'guest@guest.com',
+            'phone'  => $data['phone'],
+            'password' => Hash::make('12345678'),
+            'blocked'  => '0',
+          ]);
+
+        Auth::login($user);
+      }
+
       return redirect()->route('home');
     } else {
       return back()->with(['phone' => $data['phone'], 'error' => 'رمز التحقق غير صحيح!']);

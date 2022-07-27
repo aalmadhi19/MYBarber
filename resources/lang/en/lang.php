@@ -68,6 +68,7 @@
     'clients'=> 'Clients',
     'home'=> 'My Appointments',
     'reservation'=> 'Reservation',
+    'fast-login'=> 'Fast login',
 
 
 
