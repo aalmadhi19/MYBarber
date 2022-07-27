@@ -1,9 +1,10 @@
 <!doctype html>
-@if (App::getLocale() == 'en' )
-<html dir="rtl" lang="en">
+@if (App::getLocale() == 'en')
+    <html dir="rtl" lang="en">
 @else
-<html dir="ltr" lang="ar">
+    <html dir="ltr" lang="ar">
 @endif
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -28,15 +29,10 @@
     <!-- Styles -->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-
-    <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/icon1.png') }}" />
+
     <!-- CSS here -->
-    {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.rtl.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/default.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('css/responsive.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('css/style_header02.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fullcalendar/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -55,21 +51,19 @@
     <link rel="stylesheet" href="{{ asset('vendor/animsition/css/animsition.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}">
 
-
-
-
-
     @yield('Styles')
 
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 
 </head>
 
 <body>
+
     <main>
         @include('sweetalert::alert')
         @yield('content')
     </main>
+
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
@@ -99,7 +93,6 @@
                 ps.update();
             })
         });
-
     </script>
 </body>
 

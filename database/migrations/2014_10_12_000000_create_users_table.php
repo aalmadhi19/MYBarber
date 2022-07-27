@@ -24,15 +24,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        User::create([
-            'id' => 1,
-            'name'  => 'Admin',
-            'email' => 'admin@admin.com',
-            'phone'  => '0570807590',
-            'password' => Hash::make('12345678'),
-            'blocked'  => '0',
-        ]);
-
     }
 
     /**

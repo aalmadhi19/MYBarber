@@ -4,9 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Reservation;
-use auth;
-Use Alert;
-class canBook
+use Alert;
+
+class CanBook
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,8 @@ class canBook
      */
     public function handle($request, Closure $next)
     {
-        if (Reservation::whereUser_id(Auth::id())->where('status', null)->exists()) {
+        if (auth()->user()->reservations()->whereIn('status', [Reservation::NEW, Reservation::CONFIRMED])->exists()) {
+
             Alert::error('عفواً ', 'يوجد لديك طلب سابق')->autoClose(1500);
 
             return redirect()->back();

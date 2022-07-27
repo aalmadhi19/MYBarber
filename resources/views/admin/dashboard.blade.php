@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-{{ __('lang.appointments')}} - {{ config('app.name') }}
+    {{ __('lang.appointments') }} - {{ config('app.name') }}
 @endsection
 @section('content')
     @include('layouts.header')
@@ -8,7 +8,7 @@
         <div class="container-table100">
             <div class="wrap-table100">
                 <div class="table100 ver2 m-b-110">
-                    @forelse($reservations as $reservation )
+                    @forelse($reservations as $reservation)
                         @if ($loop->first)
                             <div class="table100-head">
                                 <table>
@@ -37,9 +37,10 @@
                                                 <i class="fa fa-ban" aria-hidden="true"></i></a>
                                         </td>
                                         @if ($reservation->status == 0)
-                                        <td class=" cell100 column3"> <a class="btn  btn-sm  btn-outline-success"
-                                                href="{{ route('confirm',$reservation->id) }}"> {{ __('lang.confirm')}} <i
-                                                class="fa fa-check" aria-hidden="true"></i></a> </td>
+                                            <td class=" cell100 column3"> <a class="btn  btn-sm  btn-outline-success"
+                                                    href="{{ route('confirm', $reservation->id) }}">
+                                                    {{ __('lang.confirm') }} <i class="fa fa-check"
+                                                        aria-hidden="true"></i></a> </td>
                                         @else
                                             <td class=" cell100 column3"> <a class="btn  btn-sm  btn-outline-danger"
                                                     onclick="return confirm({{ __('lang.are you sure?') }} )"
@@ -47,9 +48,9 @@
                                                     {{ __('lang.cancel') }} <i class="fa fa-trash"
                                                         aria-hidden="true"></i></a> </td>
                                         @endif
-                                        <td class=" cell100 column3">{{ __('lang.'.$reservation->type) }}</td>
+                                        <td class=" cell100 column3">{{ __('lang.' . $reservation->type) }}</td>
                                         <td class=" cell100 column3">{{ $reservation->name }}</td>
-                                        <td class="cell100 column3">{{ $status[$reservation->status] }}</td>
+                                        <td class="cell100 column3">{{ $reservation->status_text }}</td>
                                         <td class=" cell100 column3">
                                             {{ date(' A h:i', strtotime($reservation->start_date)) }}
                                         </td>

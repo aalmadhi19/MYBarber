@@ -2,16 +2,22 @@
 
 namespace App;
 
-use auth;
 use App\Settings;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
+    protected $appends = ['status_text'];
+
     protected $fillable = [
         'user_id', 'name', 'start_date', 'end_date', 'time', 'type'
     ];
+
+    const NEW = 0;
+    const CONFIRMED = 1;
+    const CANCELED = 2;
+    const FINISHED = 3;
 
 
     public function user()
@@ -19,45 +25,24 @@ class Reservation extends Model
         return $this->belongsTo(User::class);
     }
 
-
-    public static function statuss()
-    {
-        return [
-            null =>  __('lang.new'),
-            1 =>  __('lang.confirmed'),
-            2 =>  __('lang.canceled'),
-            3 => __('lang.finished')
-        ];
-    }
-    public static function canBook()
-    {
-        if (Reservation::whereUser_id(Auth::id())->where('status', NULL)->orWhere('status', 1)->exists()) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     public static function unavailableDates()
     {
-        $start_date = Reservation::whereStatus(null)->pluck('start_date')->toarray();
-        $end_date = Reservation::whereStatus(null)->pluck('end_date')->toarray();
-        $unavailableDates = array_merge($start_date, $end_date);
-
-        return $unavailableDates;
+        $start_date = Reservation::whereIn('status', [self::NEW, self::CONFIRMED])->pluck('start_date')->toArray();
+        $end_date = Reservation::whereIn('status', [self::NEW, self::CONFIRMED])->pluck('end_date')->toArray();
+        return array_merge($start_date, $end_date);
     }
 
-    public static function FormatToBlade()
+
+    public static function formatToBlade()
     {
         $unavailableDates = self::unavailableDates();
         foreach ($unavailableDates as $date) {
             $unavailableDatess[] = Carbon::parse($date)->format('m/d/Y:H:i');
         }
-        $unavailableDatess;
         return $unavailableDatess ?? '01/01/2020:12:12';
     }
 
-    public static function FormatToValidation()
+    public static function formatToValidation()
     {
         $unavailableDates = self::unavailableDates();
         foreach ($unavailableDates as $date) {
@@ -66,29 +51,36 @@ class Reservation extends Model
         return $unavailableDatess  ?? '2020-01-01 12:12';
     }
 
+
+    public static function canBook()
+    {
+        return auth()->user()->reservations()->whereIn('status', [self::NEW, self::CONFIRMED])->exists();
+    }
+
     public static function setStatus()
     {
-        Reservation::whereStatus(null)->Orwhere('status',1)->where('start_date', '<', now())->update(['status' => 3]);
+        Reservation::active()->where('start_date', '<', now())->update(['status' => 3]);
     }
 
     public static function autoConfirm()
     {
-        $autoConfirm = Settings::where('id', 1)->first();
-
-        if ($autoConfirm->status == 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return Settings::where('name', 'Auto Confirmation')->first()->status;
     }
 
-    public static function canCancel()
-    {
 
-        if (Reservation::where('status', null)->Orwhere('status', 1)->whereUser_id(Auth::id())->where('start_date', '<', Carbon::now()->addHour(1))->exists()) {
-            return false;
-        } else {
-            return true;
-        }
+    public function getStatusTextAttribute()
+    {
+        $statuses = [
+            0 =>  __('lang.new'),
+            1 =>  __('lang.confirmed'),
+            2 =>  __('lang.canceled'),
+            3 => __('lang.finished')
+        ];
+        return $statuses[$this->status];
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->whereIn('status', [self::NEW, self::CONFIRMED]);
     }
 }

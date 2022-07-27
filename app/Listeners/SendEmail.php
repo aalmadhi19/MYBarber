@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ReservationCancel;
 
-class SendEmail
+class SendEmail implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -27,8 +27,7 @@ class SendEmail
      * @return void
      */
     public function handle(ReservationCanceled $event)
-    { 
+    {
         Mail::to($event->userEmail)->send(new ReservationCancel);
-
     }
 }

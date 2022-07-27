@@ -8,8 +8,9 @@
         <div class="limiter">
             <div class="container-login100" style="background-image: url('../img/background1.jpg');">
                 <div class="wrap-login100">
-                    <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
+                    <form method="POST" action="{{ route('fast-verify') }}" class="login100-form validate-form">
                         @csrf
+                        <input type="hidden" name="phone" value="{{ session('phone') }}">
 
                         <span class="login100-form-logo">
                             <img src="{{ asset('img/icon1.png') }}" alt="logo" width="66" height="66">
@@ -20,35 +21,19 @@
                         </span>
 
                         <div class="wrap-input100">
-                            <input class="input100" type="phone" name="phone" placeholder="{{ __('lang.phone') }}">
+                            <input class="input100" type="text" name="code" placeholder="{{ __('lang.code') }}">
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
-                        @error('phone')
+                        @error('code')
                             <span class="invalid" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
 
-
-
-                        <div class="wrap-input100">
-                            <input class="input100" type="password" name="password"
-                                placeholder="{{ __('lang.password') }}">
-                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                        </div>
-                        @error('password')
-                            <span class="invalid" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-
-                        <div class="container-login100-form-btn" style="justify-content: flex-end;">
-                                <a  class="login100-form-btn"href="{{ route('fast-login') }}"><span>دخول سريع ؟</span></a>
-                        </div>
 
 
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
+                            <button class="login100-form-btn" type="submit">
                                 {{ __('lang.login') }}
                             </button>
                         </div>
@@ -56,6 +41,10 @@
                         <div class="text-center p-t-30">
                             @if (session('message'))
                                 <div class="alert alert-danger text-center" style="width:100%;">{{ session('message') }}
+                                </div>
+                            @endif
+                            @if (session('error'))
+                                <div class="alert alert-danger text-center" style="width:100%;">{{ session('error') }}
                                 </div>
                             @endif
                             @if (App::getLocale() == 'en')

@@ -28,15 +28,15 @@
                                     <tr>
                                         <td class="cell100 column2">
                                             <b
-                                                style="{{ $statusText[$setting->status] == __('lang.enabled') ? 'color: #38c172;' : 'color: #e3342f;' }}">
-                                                {{ $statusText[$setting->status] }}
+                                                style="{{ $setting->status_text == __('lang.enabled') ? 'color: #38c172;' : 'color: #e3342f;' }}">
+                                                {{ $setting->status_text }}
                                             </b>
                                             <form action="{{ route('change.status', $setting->id) }}">
                                                 <input type="hidden" name="status" value="{{ $setting->status }}">
                                                 <br>
                                                 <a href="#"> <button
-                                                        class="{{ $statusText[$setting->status] == __('lang.enabled') ? 'btn btn-danger btn-sm' : 'btn btn-success btn-sm' }}"
-                                                        type="submit">{{ $statusText[$setting->status] == __('lang.enabled') ? __('lang.disable') : __('lang.enable') }}</button></a>
+                                                        class="{{ $setting->status_text == __('lang.enabled') ? 'btn btn-danger btn-sm' : 'btn btn-success btn-sm' }}"
+                                                        type="submit">{{ $setting->status_text == __('lang.enabled') ? __('lang.disable') : __('lang.enable') }}</button></a>
                                             </form>
                                         </td>
 

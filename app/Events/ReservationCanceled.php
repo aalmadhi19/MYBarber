@@ -13,14 +13,14 @@ use Illuminate\Queue\SerializesModels;
 class ReservationCanceled
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $userEmail;   
+    public $userEmail;
      /**
      * Create a new event instance.
      *
      * @return void
      */
     public function __construct($userEmail)
-    {   
+    {
       $this->userEmail=$userEmail;
     }
 

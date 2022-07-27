@@ -15,9 +15,7 @@ use App\Mail\ReservationCancel;
 |
 */
 
-// Route::get('/', function () {
-//     return redirect();
-// });
+Auth::routes();
 Route::get('/set-language/{lang}', 'LanguagesController@set')->name('set.language');
 
 
@@ -27,27 +25,36 @@ Route::group(['middleware' => 'LanguageSwitcher'], function () {
     Route::get('/', function () {
         return view('auth.login');
     });
-
-    Auth::routes();
-
-    Route::get('/home', 'HomeController@index')->middleware('LanguageSwitcher')->name('home');
-    Route::get('/create', 'HomeController@create')->name('create');
-    Route::post('/store', 'HomeController@store')->name('store');
-    Route::get('/destroy/{id}', 'HomeController@destroy')->name('destroy');
+    Route::get('/fast-login', function () {
+        return view('auth.fast-login');
+    })->name('fast-login');
 
 
-    Route::middleware(['admin'])->group(function () {
+    Route::post('/fast-auth', 'Auth\LoginController@fastAuth')->name('fast-auth');
+
+    Route::get('/authentication', function () {
+        return view('auth.authentication');
+    })->name('authentication');
+
+    Route::post('/verify', 'Auth\LoginController@verify')->name('fast-verify');
+
+
+    Route::middleware('auth')->group(function () {
+
+        Route::get('/home', 'HomeController@index')->middleware('LanguageSwitcher')->name('home');
+        Route::get('/create', 'HomeController@create')->name('create');
+        Route::post('/store', 'HomeController@store')->name('store');
+        Route::get('/destroy/{id}', 'HomeController@destroy')->name('destroy');
+
+    });
+
+    Route::middleware(['auth', 'admin'])->group(function () {
 
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
         Route::get('/clients', 'DashboardController@clients')->name('clients');
         Route::get('/settings', 'SettingsController@index')->name('settings');
 
         Route::get('/status/{id}', 'SettingsController@changeStatus')->name('change.status');
-        Route::get('/data/{id}', 'SettingsController@changeHours')->name('changeHours');
-        Route::get('/data', 'SettingsController@setData')->name('data');
-
-
-
 
         Route::get('/cancel/{id}', 'DashboardController@cancel')->name('cancel');
         Route::get('/confirm/{confirm}', 'DashboardController@confirm')->name('confirm');

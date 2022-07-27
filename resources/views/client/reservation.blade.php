@@ -27,16 +27,13 @@
                         </div>
                         <div>
                             <div class="booking-form">
-                                <form method="POST" action="{{ route('store') }}">
+                                <form method="POST" action="{{ route('store') }}" autocomplete="off">
                                     @csrf
-                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                    <input type="hidden" name="name" value="{{ Auth::user()->name }}">
-
                                     <div class="form-group">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                         <span class="form-label text-right">{{ __('lang.Date and Time') }}</span>
 
-                                        <input class="form-control text-right" type="text"
+                                        <input class="form-control text-right" type="text" autocomplete="off"
                                             placeholder="{{ __('lang.Date and Time') }}" name="start_date" id="start_date"
                                             value="{{ old('start_date') }}">
 
@@ -104,7 +101,6 @@
             $("#start_date").on('change', function() {
                 $("#end_date").val($("#start_date").val());
             });
-
         });
 
 

@@ -15,11 +15,7 @@ class CheckBlocked
      */
     public function handle($request, Closure $next)
     {
-
-
-
         if (auth()->check() && auth()->user()->blocked) {
-
             auth()->logout();
             $message =  __('lang.blocked');
             return redirect()->route('login')->withMessage($message);

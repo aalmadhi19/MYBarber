@@ -8,7 +8,7 @@
         <div class="limiter">
             <div class="container-login100" style="background-image: url('../img/background1.jpg');">
                 <div class="wrap-login100">
-                    <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
+                    <form method="POST" action="{{ route('fast-auth') }}" class="login100-form validate-form">
                         @csrf
 
                         <span class="login100-form-logo">
@@ -31,22 +31,6 @@
 
 
 
-                        <div class="wrap-input100">
-                            <input class="input100" type="password" name="password"
-                                placeholder="{{ __('lang.password') }}">
-                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                        </div>
-                        @error('password')
-                            <span class="invalid" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-
-                        <div class="container-login100-form-btn" style="justify-content: flex-end;">
-                                <a  class="login100-form-btn"href="{{ route('fast-login') }}"><span>دخول سريع ؟</span></a>
-                        </div>
-
-
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">
                                 {{ __('lang.login') }}
@@ -56,6 +40,10 @@
                         <div class="text-center p-t-30">
                             @if (session('message'))
                                 <div class="alert alert-danger text-center" style="width:100%;">{{ session('message') }}
+                                </div>
+                            @endif
+                            @if (session('error'))
+                                <div class="alert alert-danger text-center" style="width:100%;">{{ session('error') }}
                                 </div>
                             @endif
                             @if (App::getLocale() == 'en')

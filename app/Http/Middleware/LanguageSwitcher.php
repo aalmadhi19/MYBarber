@@ -18,7 +18,6 @@ class LanguageSwitcher
      */
     public function handle($request, Closure $next)
     {
-        // dd();
         App::setLocale(session('applocale') ?? 'en');
          return $next($request);
     }

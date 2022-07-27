@@ -6,18 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Settings extends Model
 {
+    const DISABLED = 0;
+    const ENABLED = 1;
 
     protected $fillable = [
-        'id', 'name', 'description','data', 'status'
+        'id', 'name', 'description', 'data', 'status'
     ];
 
-    public static function statusText()
+    public function getStatusTextAttribute()
     {
-        $data = [
-            0 => __('lang.disabled'),
-            1 => __('lang.enabled'),
-            // 2 => __('messages.femaldisablede'),
+        $statuses = [
+            0 =>  __('lang.disabled'),
+            1 =>  __('lang.enabled'),
         ];
-        return $data;
+        return $statuses[$this->status];
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Reservation;
+
 class StoreReservation extends FormRequest
 {
     /**
@@ -23,13 +24,10 @@ class StoreReservation extends FormRequest
      * @return array
      */
     public function rules()
-    {   
+    {
         $unavailableDates = Reservation::FormatToValidation();
         return [
-            'user_id' => 'required',
-            'name' => 'required',
             'start_date' => ['required', 'date', 'date_format:y-m-d H:i', Rule::notIn($unavailableDates)],
-            'end_date' => 'required',
             'type' => 'required',
         ];
     }
